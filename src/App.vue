@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Temp
+    @pClick="pClick"
+    :msg="msg"
+    />
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Temp from './components/Temp.vue';
+@Component({
   components: {
-    HelloWorld
+    Temp,
+  },
+})
+export default class App extends Vue {
+  msg:string ="hello"
+  pClick(){
+    alert("111")
   }
 }
 </script>
